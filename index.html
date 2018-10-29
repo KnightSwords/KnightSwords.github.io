@@ -1,10 +1,65 @@
+<!DOCTYPE html>
 <html>
+
 	<head>
-		<title>
-			邱琪
-		</title>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+		<meta name="keywords" content="黄玉竹">
+		<meta name="description" content="哈duaiduai,哈胖子,多多">
+		<title>被你发现了！</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			
+			html {
+				background: #ccc;
+				font-size: 100px;
+				height: 100%;
+			}
+			
+			body {
+				max-width: 750px;
+				margin: 0 auto;
+				background: #fff;
+				font-size: 0.18rem;
+				height: 100%;
+			}
+			
+			#main {
+				padding: 0.1rem;
+			}
+		</style>
 	</head>
+
 	<body>
-		<h1>嘿，邱琪</h1>.	
+		<div id='main'></div>
+		<script>
+			let str = '嘿，被你发现了！<br/> 你这个哈duaiduai！<br/>胖子买下了这个域名哦！',i = 0,timer;
+
+			function typing(word,eleId) {
+				let target = document.getElementById(eleId),next = false;
+				timer = setInterval(function(){
+					if(i <= word.length) {
+						if(word.slice(i, i + 1) == '<'&&next == false){
+							target.innerHTML = word.slice(0, i + 4) + '_';
+							next = true;
+						}else{
+							i = next ? i + 4 : i + 1;
+							target.innerHTML = word.slice(0, i) + '_';
+							next = false;
+						}
+					} else {
+						target.innerHTML = word; 
+						clearInterval(timer);
+						i = 0;
+					}
+				},100);
+			}
+			typing(str,'main');
+		</script>
 	</body>
+
 </html>
