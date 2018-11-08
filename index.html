@@ -30,6 +30,7 @@
 			
 			#main {
 				padding: 0.1rem;
+				line-height: 0.3rem;
 			}
 		</style>
 	</head>
@@ -37,28 +38,36 @@
 	<body>
 		<div id='main'></div>
 		<script>
-			let str = '嘿，被你发现了！<br/> 你这个哈duaiduai！<br/>胖子买下了这个域名哦！',i = 0,timer;
+			let str = '嘿，被你发现了！<br/> 你这个哈duaiduai！<br/>胖子买下了这个域名哦！嗯&nbsp;嗯&nbsp;域名呢，就是独一无二的一个地址，天上地下，唯此一家。总之，专门为你买的！',
+				i = 0,
+				timer;
 
-			function typing(word,eleId) {
-				let target = document.getElementById(eleId),next = false;
-				timer = setInterval(function(){
+			function typing(word, eleId) {
+				let target = document.getElementById(eleId),
+					next = false;
+				timer = setInterval(function() {
 					if(i <= word.length) {
-						if(word.slice(i, i + 1) == '<'&&next == false){
+						if(word.slice(i, i + 1) == '<' && next == false) {
 							target.innerHTML = word.slice(0, i + 4) + '_';
+							i += 4;
 							next = true;
-						}else{
-							i = next ? i + 4 : i + 1;
+						}else if(word.slice(i, i + 1) == '&' && next == false){
+							target.innerHTML = word.slice(0, i + 5) + '_';
+							i += 5;
+							next = true;
+						} else {
+							i = next ? i : i + 1;
 							target.innerHTML = word.slice(0, i) + '_';
 							next = false;
 						}
 					} else {
-						target.innerHTML = word; 
+						target.innerHTML = word;
 						clearInterval(timer);
 						i = 0;
 					}
-				},100);
+				}, 100);
 			}
-			typing(str,'main');
+			typing(str, 'main');
 		</script>
 	</body>
 
