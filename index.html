@@ -32,13 +32,17 @@
 				padding: 0.1rem;
 				line-height: 0.3rem;
 			}
+			#txt{
+				display: none;
+			}
 		</style>
 	</head>
 
 	<body>
+		<div id="txt"></div>
 		<div id='main'></div>
 		<script>
-			let str = '嘿，被你发现了！<br/> 你这个哈duaiduai！<br/>胖子买下了这个域名哦！嗯&nbsp;嗯&nbsp;域名呢，就是独一无二的一个地址，天上地下，唯此一家。总之，专门为你买的！',
+			let str = '嘿，被你发现了！<br/> 你这个哈duaiduai！<br/>本胖子告诉你，从今天起“黄玉竹.我爱你”这个域名被我承包了！<br/>嗯……域名呢，就是独一无二的网络地址。也就是在地球的任何地方，都可以访问到！比如百度的www.baidu.com。总之，专门为你哦！<br/>',
 				i = 0,
 				timer;
 
@@ -51,10 +55,6 @@
 							target.innerHTML = word.slice(0, i + 4) + '_';
 							i += 4;
 							next = true;
-						}else if(word.slice(i, i + 1) == '&' && next == false){
-							target.innerHTML = word.slice(0, i + 5) + '_';
-							i += 5;
-							next = true;
 						} else {
 							i = next ? i : i + 1;
 							target.innerHTML = word.slice(0, i) + '_';
@@ -65,9 +65,41 @@
 						clearInterval(timer);
 						i = 0;
 					}
-				}, 100);
+				}, 150);
 			}
 			typing(str, 'main');
+
+			var together = new Date();
+			together.setFullYear(2015, 10, 26);
+			together.setHours(0);
+			together.setMinutes(0);
+			together.setSeconds(0);
+			together.setMilliseconds(0);
+			timeElapse(together);
+			setInterval(function() {
+				timeElapse(together);
+			}, 500);
+			function timeElapse(date) {
+				let current = Date();
+				let seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+				let days = Math.floor(seconds / (3600 * 24));
+				seconds = seconds % (3600 * 24);
+				let hours = Math.floor(seconds / 3600);
+				if(hours < 10) {
+					hours = "0" + hours;
+				}
+				seconds = seconds % 3600;
+				let minutes = Math.floor(seconds / 60);
+				if(minutes < 10) {
+					minutes = "0" + minutes;
+				}
+				seconds = seconds % 60;
+				if(seconds < 10) {
+					seconds = "0" + seconds;
+				}
+				let result = "我们已经相爱：<span class=\"digit\">" + days + "</span> 天 <span class=\"digit\">" + hours + "</span> 时 <span class=\"digit\">" + minutes + "</span> 分 <span class=\"digit\">" + seconds + "</span> 秒";
+				document.getElementById('txt').innerHTML = result;
+			}
 		</script>
 	</body>
 
