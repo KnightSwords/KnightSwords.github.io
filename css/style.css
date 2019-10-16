@@ -4,6 +4,10 @@
   margin : 0;
 }
 
+html{
+  font-size:100px;
+}
+
 body,
 html {
   width : 100%;
@@ -17,7 +21,7 @@ body{
 body::before{
   content:"";
   position:absolute;
-  left:0px;
+  left:0rem;
   top:0;
   right:0;
   bottom:0;
@@ -37,7 +41,7 @@ body::after{
 }
 
 .up{
-  font-size: 46px;
+  font-size: 0.40rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -46,7 +50,7 @@ body::after{
 }
 
 .down{
-  font-size: 46px;
+  font-size: 0.40rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -56,23 +60,23 @@ body::after{
 .bottom{
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 0.20rem;
   transform: translateX(-50%);
-  font-size: 18px;
+  font-size: 0.16rem;
 }
 
 .info ul{
   list-style: none;
-  font-size: 14px;
-  top:20px;
+  font-size: 0.14rem;
+  top:0.40rem;
   position: absolute;
   color: #fff;
 }
 .info ul li{
-  line-height: 30px;
+  line-height: 0.30rem;
 }
 .info ul:nth-child(1){
-  left: 10%;
+  left: 8%;
 }
 .info ul:nth-child(2){
   left: 25%;
@@ -80,6 +84,10 @@ body::after{
 .info ul:nth-child(3){
   left: 40%;
 }
+.info ul:nth-child(4){
+  left: 8%;
+  top:2rem;
+}
 .info ul li:first-child{
-  font-size: 18px;
+  font-size: 0.16rem;
 }
